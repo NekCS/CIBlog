@@ -23,7 +23,8 @@ class Posts_model extends CI_Model {
 			return $query->result_array();
 		} else {
 			$query = $this->db->get_where('posts', array('post_id' => $post_id));
-			return $query->row_array();
+			//return $query->row_array();
+			return $query->result_array();
 		}
 	}
 }

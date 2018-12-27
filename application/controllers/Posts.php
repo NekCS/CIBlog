@@ -7,10 +7,15 @@ class Posts extends CI_Controller {
 		$this->load->model('posts_model');
 	}
 
-	public function index() {
-		$data['posts'] = $this->posts_model->get_posts();
-		$data['title'] = 'Posts';
-
+	public function index($post_id = false) {
+		if ( $post_id == false) {
+			$data['title'] = 'Posts';
+			$data['posts'] = $this->posts_model->get_posts();
+		} else {
+			$data['title'] = 'Post';
+			$data['posts'] = $this->posts_model->get_posts($post_id);
+		}
+		
 		$this->load->view('templates/header', $data);
 		$this->load->view('posts/index', $data);
 		$this->load->view('templates/footer', $data);
