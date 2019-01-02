@@ -29,17 +29,35 @@ class Posts extends CI_Controller {
 		$this->form_validation->set_rules('post-title', 'Title', 'required');
 	    $this->form_validation->set_rules('post-text', 'Text', 'required');
 
-		if ($this->form_validation->run() === FALSE)
-	    {	
+		if ($this->form_validation->run() === FALSE) {	
 	    	$data['title'] = 'Add Post';
 	        $this->load->view('templates/header', $data);
 	        $this->load->view('posts/add');
 	        $this->load->view('templates/footer');
-	    }
-	    else
-	    {	
+	    } else {	
 	        $this->posts_model->add_post();
 	        $data['title'] = 'Post Added';
+	        $this->load->view('templates/header', $data);
+	        $this->load->view('posts/success');
+	        $this->load->view('templates/footer');
+	    }
+	}
+
+	public function edit($post_id) {
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('post-title', 'Title', 'required');
+	    $this->form_validation->set_rules('post-text', 'Text', 'required');
+
+	    if ($this->form_validation->run() === FALSE) {	
+	    	$data['title'] = 'Edit Post';
+	        $this->load->view('templates/header', $data);
+	        $this->load->view('posts/add');
+	        $this->load->view('templates/footer');
+	    } else {	
+	        $this->posts_model->add_post();
+	        $data['title'] = 'Post Edited';
 	        $this->load->view('templates/header', $data);
 	        $this->load->view('posts/success');
 	        $this->load->view('templates/footer');

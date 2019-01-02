@@ -10,7 +10,8 @@ class Posts_model extends CI_Model {
 
 		$data = array(
 	        'post_title' => $this->input->post('post-title'),
-	        'post_text' => $this->input->post('post-text')
+	        'post_text' => $this->input->post('post-text'),
+	        'post_author' => $this->input->post('post-author')
 	    );
 
 	    $this->db->insert('posts', $data);

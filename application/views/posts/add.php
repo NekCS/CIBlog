@@ -14,5 +14,12 @@
 	    <label for="post-text">Text</label>
 	    <textarea class="form-control"  id="post-text" name="post-text"></textarea>
 	</div>
-    <input type="submit" name="submit" value="Create news item"  class="btn btn-dark"/>
+	<div class="form-group">
+		<label for="post-author">Example select</label>
+		<select class="form-control" id="post-author" name="post-author">
+			<option value="Nektarios Liakis">Nektarios Liakis</option>
+			<option value="nekdev" selected>nekdev</option>
+		</select>
+	</div>
+    <input type="submit" name="submit" value="Add Post"  class="btn btn-dark"/>
 </form>
