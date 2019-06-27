@@ -1,2 +1,2 @@
 # CIBlog
-A custom blog back-end using CodeIgniter
+A workshop about CodeIngiter
